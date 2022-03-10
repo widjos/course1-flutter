@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:platzi_trips_app/star.dart';
 
 // ignore: must_be_immutable
 class Review extends StatelessWidget {
@@ -7,8 +8,9 @@ class Review extends StatelessWidget {
   String nameUser = "Varuna Yama";
   String detail = "1 review 5 photos";
   String comment = "There is an amazing place in Sri Lanka";
+  double numberStars = 0.0;
 
-  Review(this.pathImage, this.nameUser, this.detail, this.comment, {Key? key}) : super(key: key);
+  Review(this.pathImage, this.nameUser, this.detail, this.numberStars ,this.comment, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +33,19 @@ class Review extends StatelessWidget {
       margin: const EdgeInsets.only(
         left: 20.0
       ),
-      child: Text(
-        detail,
-        textAlign: TextAlign.left,
-        style: const TextStyle(
-          fontFamily: "Lato",
-          fontSize: 13.0,
-          color: Color(0xFFa3a5a7)
-        )
+      child: Row (
+        children: <Widget>[
+          Text(
+            detail,
+            textAlign: TextAlign.left,
+            style: const TextStyle(
+            fontFamily: "Lato",
+            fontSize: 13.0,
+            color: Color(0xFFa3a5a7)
+            )
+           ),
+           Star(numberStars,10,1)
+        ],
       )
     );
   

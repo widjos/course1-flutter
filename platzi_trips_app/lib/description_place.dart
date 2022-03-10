@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:platzi_trips_app/review.dart';
+import 'package:platzi_trips_app/button.dart';
 import 'package:platzi_trips_app/star.dart';
 
 
 class DescriptionPlace extends StatelessWidget {
 
   String namePlace;
-  int stars;
+  double stars;
   String  descriptionPlace; 
         
   DescriptionPlace(this.namePlace, this.stars, this.descriptionPlace);
@@ -31,43 +31,6 @@ class DescriptionPlace extends StatelessWidget {
       )
     );
 
-    final star_half =  Container(
-      margin: const EdgeInsets.only(
-        top: 303.0,
-        right: 3.0
-      ),
-
-      child: const Icon(
-        Icons.star_half,
-        color: Colors.amber 
-      )
-    );
-
-    final star_border =  Container(
-      margin: const EdgeInsets.only(
-        top: 303.0,
-        right: 3.0
-      ),
-
-      child: const Icon(
-        Icons.star_border
-      )
-    );
-
-
-    final star = Container(
-      margin: const EdgeInsets.only(
-        top: 303.0,
-        right: 3.0
-      ),
-
-      child: const Icon(
-        Icons.star,
-        color: Colors.amber 
-      )
-    );
-
-
     final titleStars = Row (
       children: <Widget>[
         Container(
@@ -85,14 +48,16 @@ class DescriptionPlace extends StatelessWidget {
             textAlign: TextAlign.left, 
           )
         ),
-        Star(3.8)
+        Star(stars, 303.0, 3.0)
       ],
     );
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         titleStars,
-        description
+        description,
+        Button("Navigate")
       ],
     );
   }
