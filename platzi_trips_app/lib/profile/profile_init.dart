@@ -6,6 +6,6 @@ class ProfileInit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomeProfile();
+    return const HomeProfile();
   }
 }

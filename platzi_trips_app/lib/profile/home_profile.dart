@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:platzi_trips_app/gradient_back.dart';
+import 'package:platzi_trips_app/profile/posts_list.dart';
 import 'package:platzi_trips_app/profile/profile_description.dart';
 import 'package:platzi_trips_app/profile/profile_options.dart';
 
@@ -14,7 +15,8 @@ class HomeProfile extends StatelessWidget {
         Column(
           children: [
             ProfileDescription(),
-            ProfileOption()
+            ProfileOption(),
+            PostList()
           ],
         )
 

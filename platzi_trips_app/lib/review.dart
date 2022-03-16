@@ -24,7 +24,7 @@ class Review extends StatelessWidget {
         textAlign: TextAlign.left,
         style: const TextStyle(
           fontFamily: "Lato",
-          fontSize: 17.0
+          fontSize: 17.0,
         )
       )
     );

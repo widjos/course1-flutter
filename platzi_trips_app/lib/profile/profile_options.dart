@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ProfileOption extends StatelessWidget {
+  const ProfileOption({Key? key}) : super(key: key);
+
 
 
 

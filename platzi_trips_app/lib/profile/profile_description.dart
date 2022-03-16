@@ -1,11 +1,14 @@
 import "package:flutter/material.dart";
 
+// ignore: must_be_immutable
 class ProfileDescription extends StatelessWidget {
 
   
   String  pathImage = 'assets/img/viajero.jpg';
   String strUserName = "Rosalia Soledad";
-  String strUserEmail = "rosalia@gmail.com";  
+  String strUserEmail = "rosalia@gmail.com";
+
+  ProfileDescription({Key? key}) : super(key: key);  
   
     
 
@@ -16,8 +19,8 @@ class ProfileDescription extends StatelessWidget {
       margin: const EdgeInsets.only(
         left: 20.0
       ),
-      width: 80.0,
-      height: 80.0,
+      width: 85.0,
+      height: 85.0,
       decoration: BoxDecoration(
         border: Border.all(width: 3, color: Colors.white),
         shape: BoxShape.circle,
