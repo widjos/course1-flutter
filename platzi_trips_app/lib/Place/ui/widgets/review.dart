@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:platzi_trips_app/star.dart';
+import 'package:platzi_trips_app/widgets/star.dart';
 
 // ignore: must_be_immutable
 class Review extends StatelessWidget {

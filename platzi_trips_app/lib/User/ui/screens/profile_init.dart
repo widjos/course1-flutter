@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:platzi_trips_app/profile/home_profile.dart';
+import 'package:platzi_trips_app/User/ui/screens/home_profile.dart';
 
 class ProfileInit extends StatelessWidget {
   const ProfileInit({ Key? key }) : super(key: key);

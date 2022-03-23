@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:platzi_trips_app/home_trip.dart';
-import 'package:platzi_trips_app/profile/profile_init.dart';
-import 'package:platzi_trips_app/search/search_trips.dart';
+import 'package:platzi_trips_app/Place/ui/screens/home_trip.dart';
+import 'package:platzi_trips_app/User/ui/screens/profile_init.dart';
+import 'package:platzi_trips_app/Place/ui/screens/search_trips.dart';
 
 class PlatziTrips extends StatefulWidget {
   const PlatziTrips({ Key? key }) : super(key: key);

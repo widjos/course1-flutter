@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:platzi_trips_app/profile/post.dart';
+import 'package:platzi_trips_app/User/ui/widgets/post.dart';
 
 class PostList extends StatelessWidget {
 

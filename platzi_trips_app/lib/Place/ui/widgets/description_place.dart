@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:platzi_trips_app/button.dart';
-import 'package:platzi_trips_app/star.dart';
+import 'package:platzi_trips_app/Place/ui/widgets/button.dart';
+import 'package:platzi_trips_app/widgets/star.dart';
 
 
 class DescriptionPlace extends StatelessWidget {

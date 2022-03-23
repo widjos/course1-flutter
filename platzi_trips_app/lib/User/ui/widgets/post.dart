@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
-import 'package:platzi_trips_app/floating_action_button_green.dart';
-import 'package:platzi_trips_app/profile/card_picture.dart';
-import 'package:platzi_trips_app/profile/picture_description.dart';
+import 'package:platzi_trips_app/widgets/floating_action_button_green.dart';
+import 'package:platzi_trips_app/User/ui/widgets/card_picture.dart';
+import 'package:platzi_trips_app/user/ui/widgets/picture_description.dart';
 
 // ignore: must_be_immutable
 class Post extends StatelessWidget {
