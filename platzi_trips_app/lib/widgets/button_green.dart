@@ -17,7 +17,7 @@ class _ButtonGreenState extends State<ButtonGreen> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:() => widget.onPressed,
+      onTap:widget.onPressed,
       child: Container(
         margin: const EdgeInsets.only(
           top: 30.0,

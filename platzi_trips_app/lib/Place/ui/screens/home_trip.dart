@@ -14,6 +14,7 @@ class HomeTrip extends StatelessWidget {
     return Stack(
           children: <Widget>[
             ListView(
+        
               children: <Widget>[
                 DescriptionPlace("Bahamas", 4, descripcion),
                 ReviewList()

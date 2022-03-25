@@ -1,97 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:platzi_trips_app/User/bloc/bloc_user.dart';
+import 'package:platzi_trips_app/widgets/button_icon.dart';
 
+// ignore: must_be_immutable
 class ProfileOption extends StatelessWidget {
-  const ProfileOption({Key? key}) : super(key: key);
-
-
-
+ late UserBloc userBloc;
 
   @override
   Widget build(BuildContext context) {
 
-    final bloodTypeIcon =   Container(
-      margin: const EdgeInsets.only(
-        top: 15.0,
-        left: 15.0
+    userBloc = BlocProvider.of(context);
+    return Padding(
+      padding:const  EdgeInsets.symmetric(
+            horizontal: 0.0,
+            vertical: 10.0
         ),
-      child: const Icon(
-        Icons.bloodtype_sharp,
-        size: 40.0,
-        color: Colors.white,
-      ),
-      width: 60.0,
-      height: 60.0, 
-    );
-
-    final alarmIcon =   Container(
-      margin: const EdgeInsets.only(
-        top: 15.0,
-        left: 15.0
-        ),
-      child: const Icon(
-        Icons.access_alarms_rounded,
-        size: 40.0,
-        color: Colors.white,
-      ),
-      width: 60.0,
-      height: 60.0, 
-    );
-
-    final accountIcon =   Container(
-      margin: const EdgeInsets.only(
-        top: 15.0,
-        left: 15.0
-        ),
-      child: const Icon(
-        Icons.account_balance_outlined,
-        size: 40.0,
-        color: Colors.white,
-      ),
-      width: 60.0,
-      height: 60.0, 
-    );
-
-    final garageIcon =   Container(
-      margin: const EdgeInsets.only(
-        top: 15.0,
-        left: 15.0
-        ),
-      child: const Icon(
-        Icons.garage_rounded,
-        size: 40.0,
-        color: Colors.white,
-      ),
-      width: 60.0,
-      height: 60.0, 
-    );
-
-    final addIcon =   Container(
-      margin: const EdgeInsets.only(
-        top: 10.0,
-        left: 15.0
-        ),
-      child: const Icon(
-        Icons.add_circle,
-        size: 67.0,
-        color: Colors.white,
-      ),
-      width: 60.0,
-      height: 60.0, 
-    );
-
-    
-    return Container(
-      margin: const EdgeInsets.only(
-        top: 20.0
-      ),
       child: Row(
-        children: <Widget>[
-          bloodTypeIcon,
-          alarmIcon,
-          addIcon,
-          accountIcon,
-          garageIcon
-
+        children: [
+          ButtonIcon( true, Icons.vpn_key, 20.0, const Color.fromRGBO(255,255, 255, 0.6), ()=>{}),
+          ButtonIcon( false, Icons.add, 20.0, const Color.fromRGBO(255,255, 255, 0.1), ()=>{}),
+          ButtonIcon( true, Icons.exit_to_app, 20.0, const Color.fromRGBO(255,255, 255, 0.6), () => userBloc.singOut())
+        
         ],
 
       ),
