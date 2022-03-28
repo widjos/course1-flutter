@@ -23,8 +23,11 @@ class ProfileDescription extends StatelessWidget {
           ));
     } else {
       print(snapshot.data);
-      user = User(snapshot.data.displayName, snapshot.data.email,
-          snapshot.data.photoURL);
+      user =  User(
+        name: snapshot.data.displayName, 
+        email: snapshot.data.email,
+        photoURL:  snapshot.data.photoURL
+        );
       return Container(
           margin: const EdgeInsets.only(top:20),
           child: Row(

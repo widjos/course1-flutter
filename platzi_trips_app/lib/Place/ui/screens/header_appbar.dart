@@ -7,7 +7,7 @@ class HeaderAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        GradientBack("Bievenido",250.0),
+        GradientBack(tittle: "Bievenido", heightNab: 250.0),
         CardImageList()
       ],
       

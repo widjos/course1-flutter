@@ -29,7 +29,8 @@ class _ButtonIconState extends State<ButtonIcon> {
           widget.icon,
           size: widget.iconSize,
           color: const Color(0xFF4268D3)
-        )
+        ),
+        heroTag: null,
       ),
       
     );

@@ -4,20 +4,16 @@ import 'package:platzi_trips_app/User/ui/widgets/profile_description.dart';
 import 'package:platzi_trips_app/User/ui/widgets/profile_options.dart';
 
 class HomeProfile extends StatelessWidget {
-  const HomeProfile({ Key? key }) : super(key: key);
+  const HomeProfile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        GradientBack("Profile",300.0),
+        GradientBack(tittle: "Profile", heightNab: 300.0),
         Column(
-          children: [
-            ProfileDescription(),
-            ProfileOption()
-          ],
+          children: [ProfileDescription(), ProfileOption()],
         )
-
       ],
     );
   }

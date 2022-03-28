@@ -4,14 +4,16 @@ class PictureDescription extends StatelessWidget {
 
 
   String title = "Mountain Stars Range";
-  String activitie = "Hiking Water tall hunting";
+  String description = "Hiking Water tall hunting";
   String type = "Scenary & Photography";
-  String steps = "Steps 120,130,120";
+  int likes = 0;
+  
+  PictureDescription({required this.title, required this.description, required this.type, required this.likes});
 
   @override
   Widget build(BuildContext context) {
 
-    final titleText = Container(
+    final nameText = Container(
       margin: const EdgeInsets.only(
         top: 18.0,
         left: 20.0
@@ -27,13 +29,13 @@ class PictureDescription extends StatelessWidget {
       )
     );
 
-    final stepsText = Container(
+    final descriptionText = Container(
       margin: const EdgeInsets.only(
         top: 10.0,
         left: 20.0
       ),
       child: Text(
-        steps,
+        description,
         style: TextStyle(
           fontSize: 18.0,
           fontWeight: FontWeight.bold,
@@ -44,13 +46,13 @@ class PictureDescription extends StatelessWidget {
       )
     );
 
-    final activitieText = Container(
+    final description2 = Container(
       margin: const EdgeInsets.only(
         top: 7.0,
         left: 20.0
       ),
       child: Text(
-        title,
+        type,
         style: const TextStyle(
           fontSize: 11.0,
           fontWeight: FontWeight.bold,
@@ -61,13 +63,13 @@ class PictureDescription extends StatelessWidget {
       )
     );
 
-    final typeText = Container(
+    final likesPicture = Container(
       margin: const EdgeInsets.only(
         top: 1.0,
         left: 20.0
       ),
       child: Text(
-        type,
+        likes.toString(),
         style: const TextStyle(
           fontSize: 11.0,
           fontWeight: FontWeight.bold,
@@ -99,10 +101,10 @@ class PictureDescription extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          titleText,
-          activitieText,
-          typeText,
-          stepsText
+          nameText,
+          descriptionText,
+          description2,
+          likesPicture
 
         ],
 

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class FloatringActionButtonGreen extends StatefulWidget {
-  const FloatringActionButtonGreen({ Key? key }) : super(key: key);
+
+
+  FloatringActionButtonGreen({ Key? key }) : super(key: key);
 
   @override
   State<FloatringActionButtonGreen> createState() => _FloatringActionButtonGreenState();
@@ -33,6 +35,7 @@ class _FloatringActionButtonGreenState extends State<FloatringActionButtonGreen>
       child:  Icon(
        favorite  ? Icons.favorite : Icons.favorite_border 
       ),
+      heroTag: null
     );
   }
 }
