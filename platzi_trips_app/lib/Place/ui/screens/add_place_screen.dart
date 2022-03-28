@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:platzi_trips_app/Place/ui/widgets/card_image_fab_icon.dart';
 import 'package:platzi_trips_app/Place/ui/widgets/text_input_location.dart';
+import 'package:platzi_trips_app/widgets/button_green.dart';
 import 'package:platzi_trips_app/widgets/gradient_back.dart';
 import 'package:platzi_trips_app/widgets/text_input.dart';
 import 'package:platzi_trips_app/widgets/tittle_header.dart';
@@ -10,9 +11,11 @@ import 'package:platzi_trips_app/widgets/tittle_header.dart';
 //yokata desu ne
 // ignore: must_be_immutable
 class AddPlaceScreen extends StatefulWidget {
-  File? image;
+  //File image;
 
-  AddPlaceScreen({Key? key, this.image}) : super(key: key);
+  AddPlaceScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<AddPlaceScreen> createState() => _AddPlaceScreenState();
@@ -57,14 +60,15 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
             child: ListView(
               children: <Widget>[
                 Container(
+                  margin: const EdgeInsets.only(bottom: 20.0),
                   alignment: Alignment.center,
                   child: CardImageWithFabIcon(
-                      pathImage: widget.image!.path,
-                      width: 250.0,
-                      height: 350.0,
-                      left: 20.0,
+                      pathImage: 'assets/img/pa3.jpg',
+                      width: 350.0,
+                      height: 220.0,
+                      left: 0,
                       onPressedFabIcon: () {},
-                      iconData: Icons.camera),
+                      iconData: Icons.camera_alt),
                 ), //Foto
                 Container(
                   margin: const EdgeInsets.only(bottom: 20.0),
@@ -85,7 +89,10 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                     child: TeextInputLocation(
                       hintText: "Add Location",
                       iconData: Icons.location_on,
-                    ))
+                    )),
+                Container(
+                    width: 70.0,
+                    child: ButtonGreen('Add Place', addNewPlace, 300.0, 50.0))
               ],
             ),
           )
@@ -93,4 +100,12 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
       ),
     );
   }
+
+  void addNewPlace(){
+    //Firebase Storage
+    //url
+    //Cloud Firestore
+    //Place - title , description, url ,userOwner , likes
+  }
+
 }

@@ -51,7 +51,7 @@ class CardImageWithFabIcon extends StatelessWidget {
       alignment: const Alignment(0.9,1.1),
       children: <Widget>[
         card,
-        FloatringActionButtonGreen()
+        FloatringActionButtonGreen(iconData: iconData, onPressed: (){},)
       ],
     );
   }

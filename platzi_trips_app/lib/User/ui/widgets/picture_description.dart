@@ -29,13 +29,13 @@ class PictureDescription extends StatelessWidget {
       )
     );
 
-    final descriptionText = Container(
+    final likesPicture = Container(
       margin: const EdgeInsets.only(
         top: 10.0,
         left: 20.0
       ),
       child: Text(
-        description,
+        likes.toString(),
         style: TextStyle(
           fontSize: 18.0,
           fontWeight: FontWeight.bold,
@@ -46,13 +46,13 @@ class PictureDescription extends StatelessWidget {
       )
     );
 
-    final description2 = Container(
+    final descriptionText = Container(
       margin: const EdgeInsets.only(
         top: 7.0,
         left: 20.0
       ),
       child: Text(
-        type,
+        description,
         style: const TextStyle(
           fontSize: 11.0,
           fontWeight: FontWeight.bold,
@@ -63,13 +63,13 @@ class PictureDescription extends StatelessWidget {
       )
     );
 
-    final likesPicture = Container(
+    final description2 = Container(
       margin: const EdgeInsets.only(
         top: 1.0,
         left: 20.0
       ),
       child: Text(
-        likes.toString(),
+        type,
         style: const TextStyle(
           fontSize: 11.0,
           fontWeight: FontWeight.bold,

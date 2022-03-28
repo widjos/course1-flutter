@@ -27,7 +27,7 @@ class Post extends StatelessWidget {
                   description: incomingPlace.description,
                   type: incomingPlace.description,
                   likes: incomingPlace.likes),
-              FloatringActionButtonGreen()
+              FloatringActionButtonGreen(iconData: Icons.favorite_border,onPressed: (){},)
             ],
           )
         ],
