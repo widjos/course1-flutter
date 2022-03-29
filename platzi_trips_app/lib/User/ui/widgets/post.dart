@@ -18,7 +18,7 @@ class Post extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          CardPicture(incomingPlace.urlImage),
+          CardPicture(incomingPlace.urlImage!),
           Stack(
             alignment: const Alignment(0.9, 1.12),
             children: <Widget>[

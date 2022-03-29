@@ -1,8 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:platzi_trips_app/Place/model/place.dart';
 import 'package:platzi_trips_app/Place/ui/widgets/card_image_fab_icon.dart';
 import 'package:platzi_trips_app/Place/ui/widgets/text_input_location.dart';
+import 'package:platzi_trips_app/User/bloc/bloc_user.dart';
 import 'package:platzi_trips_app/widgets/button_green.dart';
 import 'package:platzi_trips_app/widgets/gradient_back.dart';
 import 'package:platzi_trips_app/widgets/text_input.dart';
@@ -11,10 +15,12 @@ import 'package:platzi_trips_app/widgets/tittle_header.dart';
 //yokata desu ne
 // ignore: must_be_immutable
 class AddPlaceScreen extends StatefulWidget {
-  //File image;
+  
+  File image;
+ 
 
   AddPlaceScreen({
-    Key? key,
+    Key? key, required this.image
   }) : super(key: key);
 
   @override
@@ -24,6 +30,7 @@ class AddPlaceScreen extends StatefulWidget {
 class _AddPlaceScreenState extends State<AddPlaceScreen> {
   @override
   Widget build(BuildContext context) {
+    UserBloc userBloc = BlocProvider.of<UserBloc>(context);
     final _controllerTittlePlace = TextEditingController();
     final _controllerDescriptionPlace = TextEditingController();
 
@@ -63,7 +70,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                   margin: const EdgeInsets.only(bottom: 20.0),
                   alignment: Alignment.center,
                   child: CardImageWithFabIcon(
-                      pathImage: 'assets/img/pa3.jpg',
+                      pathImage: widget.image.path,
                       width: 350.0,
                       height: 220.0,
                       left: 0,
@@ -92,7 +99,22 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                     )),
                 Container(
                     width: 70.0,
-                    child: ButtonGreen('Add Place', addNewPlace, 300.0, 50.0))
+                    child: ButtonGreen('Add Place', (){
+                      {
+                        //Firebase Storage
+                        //url
+                        //Cloud Firestore
+                        //Place - title , description, url ,userOwner , likes
+                        userBloc.updatePlaceData(Place(
+                          name: _controllerTittlePlace.text,
+                          description: _controllerDescriptionPlace.text,
+                          likes: 0,
+                        )).whenComplete(() {
+                          print("Nuevo lugar  agregado");
+                          Navigator.pop(context);
+                        });          
+                      }
+                    }, 300.0, 50.0))
               ],
             ),
           )
@@ -101,11 +123,5 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
     );
   }
 
-  void addNewPlace(){
-    //Firebase Storage
-    //url
-    //Cloud Firestore
-    //Place - title , description, url ,userOwner , likes
-  }
 
 }
