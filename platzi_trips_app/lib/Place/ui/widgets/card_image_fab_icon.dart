@@ -36,7 +36,7 @@ class CardImageWithFabIcon extends StatelessWidget {
         image: DecorationImage(
           fit: BoxFit.cover,
           image: pathImage.contains('assets') ? AssetImage(pathImage)
-                :  FileImage(File(pathImage)) as ImageProvider
+                :  NetworkImage((pathImage)) as ImageProvider
         ),
       borderRadius: const BorderRadius.all(Radius.circular(10.0)),
       shape: BoxShape.rectangle,
@@ -54,7 +54,7 @@ class CardImageWithFabIcon extends StatelessWidget {
       alignment: const Alignment(0.9,1.1),
       children: <Widget>[
         card,
-        FloatringActionButtonGreen(iconData: iconData, onPressed: (){},)
+        FloatringActionButtonGreen(iconData: iconData, onPressed: onPressedFabIcon,)
       ],
     );
   }

@@ -22,7 +22,7 @@ class ProfileOption extends StatelessWidget {
           ButtonIcon(true, Icons.vpn_key, 20.0,
               const Color.fromRGBO(255, 255, 255, 0.6), () => {}),
           ButtonIcon(
-              false, Icons.add, 20.0, const Color.fromRGBO(255, 255, 255, 0.1),
+              false, Icons.add_circle, 20.0, const Color.fromRGBO(255, 255, 255, 0.6),
               () {
             ImagePicker.platform
                 .getImage(source: ImageSource.camera)

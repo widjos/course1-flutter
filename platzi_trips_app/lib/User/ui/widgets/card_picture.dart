@@ -19,7 +19,7 @@ class CardPicture extends StatelessWidget {
             ],
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage(pathPicture),
+              image: NetworkImage(pathPicture),
             ),
             borderRadius: const BorderRadius.all(Radius.circular(30.0)),
             shape: BoxShape.rectangle));

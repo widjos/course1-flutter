@@ -15,13 +15,9 @@ import 'package:platzi_trips_app/widgets/tittle_header.dart';
 //yokata desu ne
 // ignore: must_be_immutable
 class AddPlaceScreen extends StatefulWidget {
-  
   File image;
- 
 
-  AddPlaceScreen({
-    Key? key, required this.image
-  }) : super(key: key);
+  AddPlaceScreen({Key? key, required this.image}) : super(key: key);
 
   @override
   State<AddPlaceScreen> createState() => _AddPlaceScreenState();
@@ -99,20 +95,35 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                     )),
                 Container(
                     width: 70.0,
-                    child: ButtonGreen('Add Place', (){
+                    child: ButtonGreen('Add Place', () {
                       {
                         //Firebase Storage
                         //url
                         //Cloud Firestore
                         //Place - title , description, url ,userOwner , likes
-                        userBloc.updatePlaceData(Place(
-                          name: _controllerTittlePlace.text,
-                          description: _controllerDescriptionPlace.text,
-                          likes: 0,
-                        )).whenComplete(() {
-                          print("Nuevo lugar  agregado");
-                          Navigator.pop(context);
-                        });          
+                        userBloc.currentUser().then((firebaseUser) {
+                          String? uid = firebaseUser?.uid;
+                          String path =
+                              '${uid}/${DateTime.now().toString()}.jpg';
+
+                          userBloc.uploadFile(path, widget.image).then(
+                              (storageUpload) => storageUpload.then((value) =>
+                                  value.ref.getDownloadURL().then((valueUrl) {
+                                    print('URLIMAGE: ${valueUrl}');
+                                    userBloc
+                                        .updatePlaceData(Place(
+                                            name: _controllerTittlePlace.text,
+                                            description:
+                                                _controllerDescriptionPlace
+                                                    .text,
+                                            likes: 0,
+                                            urlImage: valueUrl))
+                                        .whenComplete(() {
+                                      print("Nuevo lugar  agregado");
+                                      Navigator.pop(context);
+                                    });
+                                  })));
+                        });
                       }
                     }, 300.0, 50.0))
               ],
@@ -122,6 +133,4 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
       ),
     );
   }
-
-
 }

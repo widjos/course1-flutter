@@ -1,55 +1,42 @@
 import "package:flutter/material.dart";
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:platzi_trips_app/User/bloc/bloc_user.dart';
 import 'card_image_fab_icon.dart';
 
 class CardImageList extends StatelessWidget {
-  final double widthCard = 325.0;
-  final double heightCard = 220.0;
-  final double leftPadding = 20.0;
+
+  UserBloc? userBloc;
+
 
   @override
   Widget build(BuildContext context) {
+    userBloc = BlocProvider.of<UserBloc>(context);
     return Container(
         height: 300.0,
-        child: ListView(
+        child: StreamBuilder(
+          stream: userBloc!.placeStream,
+          builder: (context, AsyncSnapshot snaphot ){
+            switch(snaphot.connectionState){
+              case ConnectionState.waiting:
+              case ConnectionState.none:
+                return const CircularProgressIndicator();
+              case ConnectionState.done:
+              case ConnectionState.active:
+                return listViewPlaces(userBloc!.buildPlaces(snaphot.data.docs));
+              }
+            },
+          )
+        );
+  }
+
+  Widget listViewPlaces(List<CardImageWithFabIcon> placesCard){
+    return ListView(
           padding: const EdgeInsets.all(25.0),
           scrollDirection: Axis.horizontal,
-          children: <Widget>[
-            CardImageWithFabIcon(
-                pathImage: "assets/img/pa4.jpg",
-                width: widthCard,
-                height: heightCard,
-                left: leftPadding,
-                onPressedFabIcon: () {},
-                iconData: Icons.favorite_border),
-            CardImageWithFabIcon(
-                pathImage: "assets/img/pa4.jpg",
-                width: widthCard,
-                height: heightCard,
-                left: leftPadding,
-                onPressedFabIcon: () {},
-                iconData: Icons.favorite_border),
-            CardImageWithFabIcon(
-                pathImage: "assets/img/pa1.jpg",
-                width: widthCard,
-                height: heightCard,
-                left: leftPadding,
-                onPressedFabIcon: () {},
-                iconData: Icons.favorite_border),
-            CardImageWithFabIcon(
-                pathImage: "assets/img/pa2.jpg",
-                width: widthCard,
-                height: heightCard,
-                left: leftPadding,
-                onPressedFabIcon: () {},
-                iconData: Icons.favorite_border),
-            CardImageWithFabIcon(
-                pathImage: "assets/img/pa3.jpg",
-                width: widthCard,
-                height: heightCard,
-                left: leftPadding,
-                onPressedFabIcon: () {},
-                iconData: Icons.favorite_border)
-          ],
-        ));
+          children: placesCard
+          
+        );
   }
+
 }
+
